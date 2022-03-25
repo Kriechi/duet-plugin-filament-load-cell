@@ -2,14 +2,16 @@
     "id": "FilamentLoadCell",
     "name": "Filament Load Cell",
     "author": "Thomas Kriechbaumer",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "license": "MIT",
     "homepage": "https://github.com/Kriechi/duet-plugin-filament-load-cell",
-    "dwcVersion": "3.3",
-    "sbcDsfVersion": "3.3",
+    "dwcVersion": "3.4",
+    "sbcDsfVersion": "3.4",
     "sbcRequired": true,
     "sbcExecutable": "filament_load_cell.py",
     "sbcExecutableArguments": null,
     "sbcOutputRedirected":  false,
-    "sbcPermissions": ["registerHttpEndpoints"]
+    "sbcPackageDependencies": ["python3-smbus"],
+    "sbcPythonDependencies": ["dsf-python==3.3.2"],
+    "sbcPermissions": ["registerHttpEndpoints", "gpioAccess"]
 }

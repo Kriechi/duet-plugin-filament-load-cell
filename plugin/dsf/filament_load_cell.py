@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import statistics
 import struct
 import threading
@@ -36,7 +35,7 @@ def load_cell_monitor():
                 load_cell_weight = statistics.mean(readings)
                 readings = readings[:AVERAGING_WINDOW]
                 time.sleep(3)
-        except Exception as e:
+        except:
             print("I2C read failed - resetting...")
             time.sleep(5)
 
@@ -57,9 +56,11 @@ def add_dsf_http_endpoint():
     while True:
         try:
             print("command connection started.")
+
             cmd_connection = CommandConnection()
             cmd_connection.connect()
             print("command connection connected.")
+
             endpoint = None
             endpoint = cmd_connection.add_http_endpoint(
                 HttpEndpointType.GET, "filament-load-cell", "reading"
